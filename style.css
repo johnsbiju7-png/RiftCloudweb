@@ -1,0 +1,688 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    color: #ffffff;
+    background: #0a0a0f;
+}
+
+/* Canvas Background */
+#crystal-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(100, 50, 150, 0.2), rgba(0, 0, 0, 0.7));
+    z-index: -1;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Glass Navigation */
+.glass-nav {
+    background: rgba(10, 10, 20, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 2rem;
+    padding: 0.8rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(100, 200, 255, 0.3);
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo i {
+    color: #00ffff;
+    font-size: 2rem;
+    text-shadow: 0 0 15px #00ffff;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { text-shadow: 0 0 15px #00ffff; }
+    50% { text-shadow: 0 0 30px #ff66ff; }
+}
+
+.logo span:first-of-type {
+    background: linear-gradient(135deg, #00ffff, #ff66ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.logo-badge {
+    font-size: 0.7rem;
+    background: rgba(0, 255, 255, 0.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid #00ffff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #00ffff, #ff66ff);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.discord-btn, .order-btn {
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.discord-btn {
+    background: #5865F2;
+    color: white;
+}
+
+.order-btn {
+    background: linear-gradient(135deg, #00ffff, #ff66ff);
+    color: white;
+}
+
+.discord-btn:hover, .order-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 80vh;
+    padding: 2rem 0;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.crystal-badge {
+    display: inline-block;
+    background: rgba(0, 255, 255, 0.2);
+    border: 1px solid #00ffff;
+    padding: 0.3rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px #00ffff; }
+    50% { box-shadow: 0 0 20px #ff66ff; }
+}
+
+.glow-text {
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+}
+
+.rift-text {
+    background: linear-gradient(135deg, #00ffff, #ff66ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: block;
+}
+
+.dev-text {
+    font-size: 2rem;
+    color: #fff;
+    display: block;
+}
+
+.hero-desc {
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.primary-btn, .secondary-btn {
+    padding: 0.8rem 1.8rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, #00ffff, #ff66ff);
+    color: white;
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #00ffff;
+    color: white;
+}
+
+.primary-btn:hover, .secondary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+}
+
+.stats-badge {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #00ffff;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.hero-crystal {
+    flex: 1;
+    text-align: center;
+}
+
+.floating-crystal i {
+    font-size: 12rem;
+    color: rgba(0, 255, 255, 0.3);
+    animation: float 3s ease-in-out infinite, crystalGlow 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes crystalGlow {
+    0%, 100% { text-shadow: 0 0 20px #00ffff; }
+    50% { text-shadow: 0 0 50px #ff66ff; }
+}
+
+/* Section Titles */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 3rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.section-title i {
+    color: #00ffff;
+    font-size: 2rem;
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.crystal-card {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    transition: all 0.3s;
+}
+
+.crystal-card:hover {
+    transform: translateY(-10px);
+    border-color: #ff66ff;
+    box-shadow: 0 10px 30px rgba(255, 102, 255, 0.2);
+}
+
+.card-icon i {
+    font-size: 3rem;
+    color: #00ffff;
+    margin-bottom: 1rem;
+}
+
+.crystal-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.crystal-card p {
+    color: #aaa;
+    margin-bottom: 1rem;
+}
+
+.price-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #00ffff, #ff66ff);
+    padding: 0.3rem 1rem;
+    border-radius: 2rem;
+    font-weight: bold;
+}
+
+/* Live Stats */
+.live-stats {
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 102, 255, 0.1));
+    border-radius: 2rem;
+    padding: 2rem;
+    margin: 3rem 0;
+    border: 1px solid rgba(0, 255, 255, 0.5);
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.stat-block {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stat-block i {
+    font-size: 2.5rem;
+    color: #00ffff;
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.stat-name {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+/* Showcase Grid */
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.showcase-item {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.showcase-item:hover {
+    transform: scale(1.05);
+    border-color: #ff66ff;
+}
+
+.showcase-image i {
+    font-size: 4rem;
+    color: #00ffff;
+    margin-bottom: 1rem;
+}
+
+.showcase-item h4 {
+    margin-bottom: 0.5rem;
+}
+
+.showcase-item p {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* Pricing Section */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.pricing-card {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 2rem;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    transition: all 0.3s;
+    position: relative;
+}
+
+.pricing-card.popular {
+    border-color: #ff66ff;
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 102, 255, 0.3);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #00ffff, #ff66ff);
+    padding: 0.3rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.pricing-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00ffff;
+}
+
+.price span {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.pricing-card ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.pricing-card li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pricing-card li i {
+    color: #00ffff;
+}
+
+.pricing-btn {
+    display: block;
+    text-align: center;
+    background: linear-gradient(135deg, #00ffff, #ff66ff);
+    padding: 0.8rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.pricing-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+}
+
+/* Discord CTA */
+.discord-cta {
+    background: linear-gradient(135deg, rgba(88, 101, 242, 0.2), rgba(255, 102, 255, 0.2));
+    border-radius: 2rem;
+    padding: 3rem;
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.cta-content i {
+    font-size: 4rem;
+    color: #5865F2;
+    margin-bottom: 1rem;
+}
+
+.cta-content h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.cta-content p {
+    color: #aaa;
+    margin-bottom: 1.5rem;
+}
+
+.cta-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.discord-main, .discord-order {
+    padding: 0.8rem 1.8rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.discord-main {
+    background: #5865F2;
+    color: white;
+}
+
+.discord-order {
+    background: linear-gradient(135deg, #00ffff, #ff66ff);
+    color: white;
+}
+
+.discord-main:hover, .discord-order:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(88, 101, 242, 0.4);
+}
+
+/* Footer */
+footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-logo i {
+    font-size: 2rem;
+    color: #00ffff;
+}
+
+.footer-logo span {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.footer-logo small {
+    color: #aaa;
+    font-size: 0.7rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.footer-links a:hover {
+    color: #00ffff;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social a {
+    color: #aaa;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.footer-social a:hover {
+    color: #00ffff;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 255, 255, 0.1);
+    color: #aaa;
+    font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .glass-nav {
+        flex-direction: column;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .hero {
+        text-align: center;
+    }
+    
+    .glow-text {
+        font-size: 2.5rem;
+    }
+    
+    .dev-text {
+        font-size: 1.5rem;
+    }
+    
+    .stats-badge {
+        justify-content: center;
+    }
+    
+    .pricing-card.popular {
+        transform: scale(1);
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiftCloud Development — Minecraft Crystal PVP Experts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Crystal Particles Canvas -->
+    <canvas id="crystal-canvas"></canvas>
+    
+    <!-- Animated Background Overlay -->
+    <div class="bg-overlay"></div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="glass-nav">
+            <div class="logo">
+                <i class="fas fa-crystal"></i>
+                <span>RIFTCLOUD</span>
+                <span class="logo-badge">DEV TEAM</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#showcase" class="nav-link">Showcase</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="https://discord.gg/rCzR5X9KR6" class="discord-btn" target="_blank">
+                    <i class="fab fa-discord"></i> Main Server
+                </a>
+                <a href="https://discord.gg/aJqmD3AmYa" class="order-btn" target="_blank">
+                    <i class="fas fa-shopping-cart"></i> Order Now
+                </a>
+            </div>
+        </nav>
+        
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="crystal-badge">
+                    <i class="fas fa-gem"></i> CRYSTAL PVP EXPERTS
+                </div>
+                <h1 class="glow-text">
+                    <span class="rift-text">RIFTCLOUD</span>
+                    <span class="dev-text">Development Team</span>
+                </h1>
+                <p class="hero-desc">Premium Minecraft Crystal PVP Servers • Custom Plugins • Website Development</p>
+                <div class="hero-buttons">
+                    <a href="https://discord.gg/rCzR5X9KR6" class="primary-btn" target="_blank">
+                        <i class="fab fa-discord"></i> Join Our Community
+                    </a>
+                    <a href="https://discord.gg/aJqmD3AmYa" class="secondary-btn" target="_blank">
+                        <i class="fas fa-rocket"></i> Order Services
+                    </a>
+                </div>
+                <div class="stats-badge">
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Servers Created</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">Crystal Plugins</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10k+</span>
+                        <span class="stat-label">Happy Players</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-crystal">
+                <div class="floating-crystal">
+                    <i class="fas fa-crystal"></i>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section class="services-section" id="services">
+            <h2 class="section-title">
+                <i class="fas fa-bolt"></i>
+                What We Build
+                <i class="fas fa-bolt"></i>
+            </h2>
+            <div class="services-grid">
+                <div class="service-card crystal-card">
+                    <div class="card-icon">
+                        <i class="fas fa-crystal"></i>
+                    </div>
+                    <h3>Crystal PVP Servers</h3>
+                    <p>Fully optimized Minecraft servers with custom crystal PVP mechanics, anti-cheat, and tournament systems.</p>
+                    <div class="price-tag">From $29.99</div>
+                </div>
+                <div class="service-card crystal-card">
+                    <div class="card-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Custom Plugins</h3>
+                    <p>Tailor-made Minecraft plugins for crystal PVP, factions, kits, and unique gameplay features.</p>
+                    <div class="price-tag">From $9.99</div>
+                </div>
+                <div class="service-card crystal-card">
+                    <div class="card-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Discord Bots</h3>
+                    <p>Powerful Discord bots for server management, ticket systems, and community engagement.</p>
+                    <div class="price-tag">From $4.99</div>
+                </div>
+                <div class="service-card crystal-card">
+                    <div class="card-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Custom Websites</h3>
+                    <p>Stunning websites for your Minecraft server with buycraft integration and player stats.</p>
+                    <div class="price-tag">From $49.99</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Live Stats Section -->
+        <section class="live-stats">
+            <div class="stats-container">
+                <div class="stat-block">
+                    <i class="fas fa-users"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="onlinePlayers">0</span>
+                        <span class="stat-name">Online Players</span>
+                    </div>
+                </div>
+                <div class="stat-block">
+                    <i class="fas fa-discord"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="discordMembers">0</span>
+                        <span class="stat-name">Discord Members</span>
+                    </div>
+                </div>
+                <div class="stat-block">
+                    <i class="fas fa-crystal"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="activeServers">0</span>
+                        <span class="stat-name">Active Servers</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Showcase Section -->
+        <section class="showcase" id="showcase">
+            <h2 class="section-title">
+                <i class="fas fa-crown"></i>
+                Crystal Showcase
+                <i class="fas fa-crown"></i>
+            </h2>
+            <div class="showcase-grid">
+                <div class="showcase-item">
+                    <div class="showcase-image">
+                        <i class="fas fa-crystal"></i>
+                    </div>
+                    <h4>Crystal PVP Arena</h4>
+                    <p>Custom arena with crystal mechanics</p>
+                </div>
+                <div class="showcase-item">
+                    <div class="showcase-image">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h4>Tournament System</h4>
+                    <p>Auto tournaments with rewards</p>
+                </div>
+                <div class="showcase-item">
+                    <div class="showcase-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>Leaderboards</h4>
+                    <p>Real-time player rankings</p>
+                </div>
+                <div class="showcase-item">
+                    <div class="showcase-image">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Anti-Cheat</h4>
+                    <p>Advanced crystal PVP protection</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pricing Section -->
+        <section class="pricing-section" id="pricing">
+            <h2 class="section-title">
+                <i class="fas fa-tag"></i>
+                Crystal Packages
+                <i class="fas fa-tag"></i>
+            </h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Crystal Basic</h3>
+                        <div class="price">$4.99<span>/month</span></div>
+                    </div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Basic Crystal PVP Plugin</li>
+                        <li><i class="fas fa-check"></i> Discord Support</li>
+                        <li><i class="fas fa-check"></i> 1 Custom Crystal</li>
+                    </ul>
+                    <a href="https://discord.gg/aJqmD3AmYa" class="pricing-btn">Order Now</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">POPULAR</div>
+                    <div class="pricing-header">
+                        <h3>Crystal Pro</h3>
+                        <div class="price">$29.99<span>/one-time</span></div>
+                    </div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Full Crystal PVP Server Setup</li>
+                        <li><i class="fas fa-check"></i> Custom Plugins (3 included)</li>
+                        <li><i class="fas fa-check"></i> Website Integration</li>
+                        <li><i class="fas fa-check"></i> 24/7 Priority Support</li>
+                    </ul>
+                    <a href="https://discord.gg/aJqmD3AmYa" class="pricing-btn">Order Now</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Crystal Ultimate</h3>
+                        <div class="price">$99<span>/one-time</span></div>
+                    </div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Full Custom Minecraft Server</li>
+                        <li><i class="fas fa-check"></i> Custom Website + Discord Bot</li>
+                        <li><i class="fas fa-check"></i> Unlimited Custom Plugins</li>
+                        <li><i class="fas fa-check"></i> Lifetime Updates + Support</li>
+                    </ul>
+                    <a href="https://discord.gg/aJqmD3AmYa" class="pricing-btn">Order Now</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Discord CTA -->
+        <section class="discord-cta">
+            <div class="cta-content">
+                <i class="fab fa-discord"></i>
+                <h3>Ready to Dominate Crystal PVP?</h3>
+                <p>Join our Discord community and get your custom server today!</p>
+                <div class="cta-links">
+                    <a href="https://discord.gg/rCzR5X9KR6" class="discord-main" target="_blank">
+                        <i class="fab fa-discord"></i> Main Server
+                    </a>
+                    <a href="https://discord.gg/aJqmD3AmYa" class="discord-order" target="_blank">
+                        <i class="fas fa-shopping-cart"></i> Order Services
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-crystal"></i>
+                    <span>RIFTCLOUD</span>
+                    <small>Development Team</small>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#showcase">Showcase</a>
+                    <a href="#pricing">Pricing</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://discord.gg/rCzR5X9KR6" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 RiftCloud Development Team — Crystal PVP Experts | Made with <i class="fas fa-crystal"></i> for Minecraft Community</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="crystal-bg.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
